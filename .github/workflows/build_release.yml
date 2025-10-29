@@ -106,7 +106,7 @@ jobs:
       - name: Install frontend dependencies
         run: |
           cd quick_clipboard
-          npm install; vite build
+          npm install; npm run build
 
       - name: "⚙️ Reset flags"
         shell: bash
