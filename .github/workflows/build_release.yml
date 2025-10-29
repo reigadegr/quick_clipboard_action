@@ -61,7 +61,7 @@ jobs:
   # Build binaries
   build-quick_clipboard:
     name: Build quick_clipboard
-    needs: [build-check,preprocessing-code]
+    needs: [build-check]
     runs-on: ${{ matrix.os }}
     timeout-minutes: 180
     strategy:
