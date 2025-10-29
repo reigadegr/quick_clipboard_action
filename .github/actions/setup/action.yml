@@ -86,7 +86,7 @@ runs:
     - name: Setup Tauri cli
       shell: bash
       run: |
-        wget "$(curl -s https://api.github.com/repos/tauri-apps/tauri/releases/latest | jq -r '.assets[] | select(.name == "cargo-tauri-x86_64-pc-windows-msvc.zip") | .browser_download_url')"
+        curl -L "$(curl -s https://api.github.com/repos/tauri-apps/tauri/releases/latest | jq -r '.assets[] | select(.name == "cargo-tauri-x86_64-pc-windows-msvc.zip") | .browser_download_url')" -o cargo-tauri-x86_64-pc-windows-msvc.zip
         unzip cargo-tauri-x86_64-pc-windows-msvc.zip -d $HOME/.cargo/bin
 
     - name: Setup Node.js
