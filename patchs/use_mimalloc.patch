@@ -1,0 +1,13 @@
+diff --git a/src-tauri/src/main.rs b/src-tauri/src/main.rs
+index 7afc40d..05a72be 100644
+--- a/src-tauri/src/main.rs
++++ b/src-tauri/src/main.rs
+@@ -1,6 +1,8 @@
+ // Prevents additional console window on Windows in release, DO NOT REMOVE!!
+ #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
+ 
++#[global_allocator]
++static GLOBAL: mimalloc::MiMalloc = mimalloc::MiMalloc;
+ fn main() {
+     quickclipboard_lib::run()
+ }
