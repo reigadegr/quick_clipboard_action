@@ -81,14 +81,18 @@ runs:
         rustup component add rust-src llvm-tools-preview clippy rustfmt
         rustup component add rust-src --toolchain "$toolchain"-"${{ inputs.target }}"
         rustup target add "${{ inputs.target }}" --toolchain "$toolchain"
-        cargo install tauri-cli
         rustup update
+
+    - name: Setup Tauri cli
+      shell: bash
+      run: |
+        wget "$(curl -s https://api.github.com/repos/tauri-apps/tauri/releases/latest | jq -r '.assets[] | select(.name == "cargo-tauri-x86_64-pc-windows-msvc.zip") | .browser_download_url')"
+        unzip cargo-tauri-x86_64-pc-windows-msvc.zip -d $HOME/.cargo/bin
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: lts/*
-        cache: 'npm'
 
     - name: Setup NASM
       if: runner.os == 'Windows'
