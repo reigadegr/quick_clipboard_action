@@ -23,11 +23,6 @@ on:
           - "aarch64-pc-windows-msvc"
           - "aarch64-apple-darwin"
           - "x86_64-apple-darwin"
-      TRANSLATION:
-        type: boolean
-        description: "是否汉化？"
-        required: true
-        default: true
 
 permissions:
   contents: read
@@ -55,7 +50,6 @@ jobs:
           echo "-----------------------"
           echo "Selected TOOLCHAINS: ${{ github.event.inputs.TOOLCHAINS }}"
           echo "Selected TARGET: ${{ github.event.inputs.TARGET }}"
-          echo "Selected TRANSLATION: ${{ github.event.inputs.TRANSLATION }}"
           echo "-----------------------"
 
   # Build binaries
