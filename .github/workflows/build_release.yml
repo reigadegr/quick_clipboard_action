@@ -106,7 +106,7 @@ jobs:
       - name: Install frontend dependencies
         run: |
           cd quick_clipboard
-          npm ci
+          npm install; vite build
 
       - name: "⚙️ Reset flags"
         shell: bash
@@ -119,7 +119,7 @@ jobs:
       - name: "🔨 Build quick_clipboard"
         shell: bash
         run: |
-          rm -rf target && echo "删除了target" || echo "无需删除"
+          cd quick_clipboard
           toolchain="${{ github.event.inputs.TOOLCHAINS }}"
           platform="${{ contains(github.event.inputs.TARGET, 'windows') && 'windows' || (contains(github.event.inputs.TARGET, 'apple') && 'apple' || 'linux') }}"
           file="build_"$toolchain"_"$platform".sh"
