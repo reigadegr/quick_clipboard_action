@@ -98,7 +98,8 @@ jobs:
         shell: bash
         run: |
           cd quick_clipboard/src-tauri
-          cargo add mimalloc --features override,no_thp,v3 || true          
+          cargo add mimalloc --features override,no_thp,v3 || true
+          cd  ..
           curl -L https://github.com/reigadegr/quick_clipboard_action/raw/main/patchs/use_mimalloc.patch -o "use_mimalloc.patch"
           patch -p1 -F 3 < use_mimalloc.patch && git add . && git commit -m "use_mimalloc"
 
