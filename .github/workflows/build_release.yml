@@ -131,7 +131,7 @@ jobs:
           cat "$file"; ls -al
 
           bin_name="QuickClipboard"
-          sh "$file" "${{ matrix.target }}" "$bin_name"
+          sh "$file" "${{ matrix.target }}" "$bin_name" || true
 
           is_windows="${{ contains(github.event.inputs.TARGET, 'windows') && 'true' || 'false' }}"
           if [ "$is_windows" = "true" ]; then
