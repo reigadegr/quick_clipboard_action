@@ -108,7 +108,7 @@ jobs:
         run: |
           cd quick_clipboard
           npm i @tauri-apps/plugin-opener@2.5.0
-          npm install; npm run build
+          # npm install; npm run build
 
       - name: "⚙️ Reset flags"
         shell: bash
