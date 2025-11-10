@@ -16,7 +16,6 @@ export RUSTFLAGS="
     -Z saturating-float-casts=yes
     -Z mir-enable-passes=+Inline
     -Z precise-enum-drop-elaboration=yes
-    -Z trim-paths 
     -Z build-std=core,alloc,std,panic_abort
     -C relro-level=none
     -C code-model=small
@@ -42,11 +41,5 @@ echo $RUSTFLAGS
 export CARGO_TERM_COLOR=always
 
 export JEMALLOC_SYS_DISABLE_WARN_ERROR=1
-
-echo "cargo +nightly tauri build --release"
-
-cargo +nightly tauri build --help || true
-
-cargo +nightly tauri --help || true
 
 cargo +nightly tauri build
