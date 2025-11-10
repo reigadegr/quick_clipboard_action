@@ -45,4 +45,8 @@ export JEMALLOC_SYS_DISABLE_WARN_ERROR=1
 
 echo "cargo +nightly tauri build --release"
 
-cargo +nightly tauri build --release
+cargo +nightly tauri build --help || true
+
+cargo +nightly tauri --help || true
+
+cargo +nightly tauri build
