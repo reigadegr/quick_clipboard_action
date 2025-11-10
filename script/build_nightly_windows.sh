@@ -41,4 +41,4 @@ export CARGO_TERM_COLOR=always
 
 export JEMALLOC_SYS_DISABLE_WARN_ERROR=1
 
-cargo +nightly tauri build
+cargo +nightly tauri build -- -Z trim-paths -Z build-std=core,alloc,std,panic_abort
