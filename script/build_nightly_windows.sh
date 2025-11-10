@@ -43,6 +43,6 @@ export CARGO_TERM_COLOR=always
 
 export JEMALLOC_SYS_DISABLE_WARN_ERROR=1
 
-echo "cargo +nightly tauri build -r"
+echo "cargo +nightly tauri build --release"
 
-cargo +nightly tauri build -r
+cargo +nightly tauri build --release
