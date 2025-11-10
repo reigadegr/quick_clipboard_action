@@ -104,11 +104,18 @@ jobs:
           curl -L https://github.com/reigadegr/quick_clipboard_action/raw/main/patchs/use_mimalloc.patch -o "use_mimalloc.patch"
           patch -p1 -F 3 < use_mimalloc.patch && git add . && git commit -m "use_mimalloc"
 
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
       - name: Install frontend dependencies
+        env:
+          FORCE_COLOR: 1
+          PNPM_COLOR: always
         run: |
           cd quick_clipboard
           npm i @tauri-apps/plugin-opener@2.5.0
-          # npm install; npm run build
 
       - name: "⚙️ Reset flags"
         shell: bash
