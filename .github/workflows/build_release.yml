@@ -98,6 +98,7 @@ jobs:
         shell: bash
         run: |
           cd quick_clipboard/src-tauri
+          rm -rf rust-toolchain.toml || true
           cargo add mimalloc --features override,no_thp,v3 || true
           cd  ..
           curl -L https://github.com/reigadegr/quick_clipboard_action/raw/main/patchs/use_mimalloc.patch -o "use_mimalloc.patch"
